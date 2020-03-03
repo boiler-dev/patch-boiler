@@ -1,11 +1,13 @@
 import expect from "./expect"
 
 import loaded from "../src/loaded"
-import patch from "../src/patch"
 import tinyId from "../src/tinyId"
+import patch from "../src/patch"
 
-loaded.load({ patch, tinyId })
-beforeEach(() => patch.reset())
+beforeEach(() => {
+  patch.reset()
+  loaded.load({ patch, tinyId })
+})
 
 class A {
   patchMe(hi: string): boolean {

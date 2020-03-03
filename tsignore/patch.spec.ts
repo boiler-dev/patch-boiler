@@ -1,8 +1,8 @@
 import expect from "./expect"
 
-import loaded from "./loaded"
-import tinyId from "./tiny-id"
+import loaded from "../src/loaded"
 import patch from "../src/patch"
+import tinyId from "../src/tinyId"
 
 loaded.load({ patch, tinyId })
 beforeEach(() => patch.reset())

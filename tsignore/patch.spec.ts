@@ -4,20 +4,21 @@ import loaded from "../src/loaded"
 import tinyId from "../src/tinyId"
 import patch from "../src/patch"
 
-beforeEach(() => {
-  patch.reset()
-  loaded.load({ patch, tinyId })
-})
-
-class A {
-  patchMe(hi: string): boolean {
-    return true
-  }
-}
-
-const a = new A()
-
 describe("patch", () => {
+  beforeEach(() => {
+    patch.reset()
+    loaded.reset()
+    loaded.load({ patch, tinyId })
+  })
+
+  class A {
+    patchMe(hi: string): boolean {
+      return true
+    }
+  }
+
+  const a = new A()
+
   it("patches", () => {
     expect.assertions(9)
 

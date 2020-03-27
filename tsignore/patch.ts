@@ -159,7 +159,7 @@ export class Patch {
       .concat([])
       .reverse()
       .find(
-        step => step.order === 0 || step.return === true
+        (step) => step.order === 0 || step.return === true
       )
 
     if (!mainFn) {
@@ -169,7 +169,7 @@ export class Patch {
     }
 
     return Object.keys(mainFn).find(
-      key =>
+      (key) =>
         ["args", "order", "returnArgs", "return"].indexOf(
           key
         ) < 0
